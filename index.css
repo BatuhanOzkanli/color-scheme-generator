@@ -1,0 +1,245 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: burlywood;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+}
+
+header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.btn-extra-text {
+    display: none;
+}
+
+input[type="color"], select, button {
+    height: 45px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 60px;
+    cursor: pointer;
+    background: none;
+    transition: transform 0.1s;
+}
+
+input[type="color"]:hover {
+    transform: scale(1.05);
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Styling Dropdown and Button */
+select, button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 3. Styling the Dropdown (Select) */
+
+@keyframes glow-fade {
+    0% {
+        border-color: #3b82f6;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    }
+    100% {
+        border-color: #d1d5db;
+        box-shadow: none;
+    }
+}
+
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    flex: 1;
+    min-width: 0;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    padding: 0 15px;
+    color: #374151;
+    cursor: pointer;
+    width: 100%;
+    
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.8em 1.8em;
+    padding-right: 2.5rem;
+    
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    outline: none;
+    animation: glow-fade 3s forwards;
+}
+
+button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #2563eb;
+    transform: translateY(-0.3px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(0);
+    background-color: #1d4ed8;
+}
+
+button:focus {
+    outline: none;
+}
+
+#palette-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.color-col {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hex-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+    font-family: monospace;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.hex-code:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.mini-swatch {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+@media (min-width: 600px) {
+    #palette-container {
+        gap: 15px;
+        overflow: visible;
+        /*background: none;
+        height: auto;
+        flex-direction: column;
+        box-shadow: none;
+        border: none;*/
+    }
+    
+    .color-col {
+        flex-direction: row;
+        height: 80px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .color-col:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+        z-index: 10;
+        cursor: pointer; 
+    }
+    
+    .color-swatch {
+        display: block;
+        flex: 1;
+        border-radius: 8px 0 0 8px;
+    }
+    
+    .hex-code {
+        width: 30%;
+        justify-content: center;
+        border-left: none;
+        
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        
+        background: transparent;
+        border-radius: 10px;
+    }
+    
+    .mini-swatch {
+        display:none;
+    }
+    
+    .btn-extra-text {
+    display: inline;
+}
+
+}

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>Color Scheme Generator</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="color-picker-container">
+                    <input type="color" id="seed-color" value="#F55A5A">
+                </div>
+                <select id="mode-select">
+                    <option value="monochrome">Monochrome</option>
+                    <option value="monochrome-dark">Monochrome-dark</option>
+                    <option value="monochrome-light">Monochrome-light</option> 
+                    <option value="analogic">Analogic</option>
+                    <option value="complement">Complement</option>
+                    <option value="analogic-complement">Analogic-complement</option>
+                    <option value="triad">Triad</option>
+                    <option value="quad">Quad</option>
+                </select>
+                <button id="get-scheme-btn">Get <span class="btn-extra-text">color scheme</button>
+            </header>
+            
+            <main id="palette-container">
+                <div class="color-col">
+                    <div class="color-swatch" style="background-color: #F55A5A;"></div>
+                    <div class="hex-code" onclick="copyToClipboard('#F55A5A', this)">
+                        <div class="mini-swatch" style="background-color: #F55A5A;"></div>
+                        <span class="hex-text">#F55A5A</span>
+                    </div>
+                </div>
+                
+                <div class="color-col">
+                    <div class="color-swatch" style="background-color: #2B283A;"></div>
+                    <div class="hex-code" onclick="copyToClipboard('#2B283A', this)">
+                        <div class="mini-swatch" style="background-color: #2B283A;"></div>
+                        <span class="hex-text">#2B283A</span>
+                    </div>
+                </div>
+                
+                <div class="color-col">
+                <div class="color-swatch" style="background-color: #FBF3AB;"></div>
+                <div class="hex-code" onclick="copyToClipboard('#FBF3AB', this)">
+                    <div class="mini-swatch" style="background-color: #FBF3AB;"></div>
+                    <span class="hex-text">#FBF3AB</span>
+                </div>
+            </div>
+            
+            <div class="color-col">
+                <div class="color-swatch" style="background-color: #AAD1B6;"></div>
+                <div class="hex-code" onclick="copyToClipboard('#AAD1B6', this)">
+                    <div class="mini-swatch" style="background-color: #AAD1B6;"></div>
+                    <span class="hex-text">#AAD1B6</span>
+                </div>
+            </div>
+            
+            <div class="color-col">
+                <div class="color-swatch" style="background-color: #A626D3;"></div>
+                <div class="hex-code" onclick="copyToClipboard('#A626D3', this)">
+                    <div class="mini-swatch" style="background-color: #A626D3;"></div>
+                    <span class="hex-text">#A626D3</span>
+                </div>
+            </div>
+            
+        </main>
+    </div>      
+        
+        <script src="index.js"></script>
+    </body>
+</html>
